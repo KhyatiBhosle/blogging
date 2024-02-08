@@ -1,0 +1,54 @@
+<%- include('partials/header.ejs'); %>
+
+    <div class="allBlogs">
+        <% if (locals.blogs.length > 0) {%>
+            <%for(var i = locals.blogs.length - 1; i>=0; i--){ %>
+                <div class="readingBlog">
+                    <button class="readMore" value='<%= locals.blogs[i].content%>' onclick="display('<%=locals.blogs[i].title%>', '<%=i%>')">
+                        <h1 class ="blogTitle">
+                            <%= locals.blogs[i].title %>
+                        </h1>
+                        <p>
+                            <%= locals.blogs[i].content.slice(0,450) %>...
+                            <span>Read more</span>
+                        </p>
+                    </button>
+                    <hr>
+                </div> 
+            <%};%>
+        <%}else{%>
+            <div class="noBlog">
+                <h1 class ="blogTitle">
+                    No blogs to show yet!
+                </h1>
+                <p>
+                    Start writing your own blogs <a href="/write">here</a>
+                </p>
+            </div>
+        <%}%>
+    </div>
+    <div class="parentBLOG">
+        <div id="blogg" class="singleBlog">
+            <button id="close" onclick="closeBlogg()"><i class="fa-solid fa-xmark"></i></button>
+            <h1 id="displayTitle"></h1>
+            <p id="displayContent" ></p>
+        </div>
+    </div>
+
+    <script>
+        var allbtns = document.querySelectorAll('.readMore');
+        //console.log(allbtns);
+        function display(title, i){
+            var index = allbtns.length - Number(i)-1;
+            document.getElementById('displayTitle').innerText= title;
+            document.getElementById('displayContent').innerText= allbtns[index].value;
+            document.getElementById('blogg').classList.add("show");
+        };
+
+        function closeBlogg(){
+            document.getElementById('blogg').classList.remove("show"); 
+        }
+    </script>
+
+<%- include('partials/footer.ejs') %>
+

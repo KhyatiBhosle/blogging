@@ -1,0 +1,62 @@
+<%- include('partials/header.ejs')%>
+<div class="landingSection">
+    <h1>
+        Blogs by YOU for YOU!
+    </h1>
+    <span>
+        Collection of Blogs written by you for people like you
+    </span>
+</div>
+<div id="readingSection">
+    <hr><br>
+    <h1>Featuring Blogs</h1><br>
+    <% if (locals.blogs.length > 0) {%>
+        <div class="grid-container">
+            <% if (locals.blogs.length >= 4){%>
+            <%for(var i = locals.blogs.length - 1; i>=locals.blogs.length - 4; i--){ %>
+                <div class="grid-item">
+                    <h2 class ="blogTitle">
+                        <%= locals.blogs[i].title %>
+                    </h2>
+                    <p>
+                        <%= locals.blogs[i].content.slice(0,190) %>...
+                    </p><a href="/read">Read More</a>
+                </div>
+            <%}}else{%>
+                <%for(var i = locals.blogs.length - 1; i>=0; i--){ %>
+                    <div class="grid-item">
+                        <h2 class ="blogTitle">
+                            <%= locals.blogs[i].title %>
+                        </h2>
+                        <p>
+                            <%= locals.blogs[i].content.slice(0,200) %>....  <a href="/read">Read More</a>
+                        </p>
+                    </div>
+            <%}};%>
+        </div>
+        <br>
+        <button>
+            <a href="/read">Explore More</a>
+        </button>
+    <%}else{%>
+        <div class="noBlog">
+            <h1 class ="blogTitle">
+                No blogs to show yet!
+            </h1>
+            <p>
+                Start writing your own blogs <a href="/write">here</a>
+            </p>
+        </div>
+    <%}%>
+    <br><br><hr><br>
+    <%if(locals.blogs.length != 0){%>
+        <div class="optionalWrite">
+            <h1>Want to create your own magic?</h1>
+            <a href="/write">Click here to start writing your own blog</a>
+        </div>
+    <%}%>
+    
+</div>
+
+
+<%- include('partials/footer.ejs')%>

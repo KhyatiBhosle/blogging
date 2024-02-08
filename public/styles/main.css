@@ -1,0 +1,211 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+h1{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.navbar{
+    padding: 10px 30px;
+    background-color: black;
+    font-size: larger;
+    height: 10vh;
+}
+
+.navbar-brand{
+    color: white;
+    font-size: x-large;
+    padding: 0 10px;
+}
+
+.nav-link{
+    text-align: center;
+    color: white;
+}
+
+.navbar-brand:hover, .nav-link:hover{
+    font-weight: bolder;
+    color: white;
+    text-decoration: underline;
+}
+
+
+/*------------------------------------HOME PAGE--------------------------------------*/
+
+.landingSection{
+    height: 95vh;
+    padding-top: 40vh;
+    text-align: center;
+}
+
+#readingSection{
+    margin: 5vh 10vh;
+}
+
+#readingSection button, #readingSection button a{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+}
+
+#readingSection a, .noBlog a{
+    background-color: white;
+    color: black;
+    padding: 0;
+    text-decoration:underline;
+    font-weight: bold;
+}
+
+.blogTitle{
+   font-size: larger;
+}
+
+.grid-container{
+    display: flex;
+}
+
+.grid-item{
+    margin: 5px;
+}
+
+.optionalWrite{
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+/*-----------------------------------WRITE PAGE--------------------------------------*/
+
+#writingSection{
+    height: 85vh;
+    margin: 5vh 10vh;
+    margin-top: 15vh;
+}
+
+#title, #content{
+    width: 100%;
+    border-color: black;
+    border-width: 0.5px;
+    border-radius: 10px;
+    padding: 5px;
+    height: 5vh;
+}
+
+#content{
+    height: 50vh;
+}
+
+#content::placeholder, #title::placeholder{
+    font-style: italic;
+}
+
+.submitButton{
+    border: 1px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    transition: 0.1s;
+}
+
+.submitButton:hover{
+    background-color: white;
+    font-weight: bolder;
+    color: black;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: black;
+}
+/*-----------------------------------READ PAGE--------------------------------------*/
+.allBlogs{
+    margin: 5vh 10vh;
+    min-height: 85vh;
+    margin-top: 15vh;
+}
+.parentBLOG{
+    position:absolute;
+    top:15vh;
+    left: 10vw;
+}
+
+.singleBlog{
+    display: none;
+    height: 70vh;
+    width: 80vw;
+    color: white;
+    background-color: black;
+    border-radius: 50px;
+    padding: 5%;
+    opacity:90%;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+
+.show{
+    display:block;
+    position:fixed;
+}
+
+#close{
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    background-color: black;
+    border: none;
+    color: white
+}
+
+.readMore{
+    background-color: white;
+    border: none; 
+    text-align: justify;
+}
+
+.readMore span{
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+   /*-----------------------------------FOOTER PAGE--------------------------------------*/
+.footer{
+    background-color: black;
+    padding: 5vh 10vh;
+    color: white;
+    margin: 0;
+}
+
+.footer .grid-item a{
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.footer .grid-item a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+  /*-----------------------------------PHONE/TAB PAGE--------------------------------------*/
+
+  @media (max-width: 800px){
+    .grid-container{
+        display:block;
+    }
+
+    #readingSection .grid-item{
+        border-top: solid 0.5px;
+        padding-top: 10px;
+    }
+}
