@@ -30,8 +30,6 @@ h1{
     color: white;
     text-decoration: underline;
 }
-
-
 /*------------------------------------HOME PAGE--------------------------------------*/
 
 .landingSection{
@@ -115,12 +113,10 @@ h1{
     background-color: white;
     font-weight: bolder;
     color: black;
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: black;
+    border: solid 0.5px black;
 }
 /*-----------------------------------READ PAGE--------------------------------------*/
-.allBlogs{
+.allBlogs, .edit{
     margin: 5vh 10vh;
     min-height: 85vh;
     margin-top: 15vh;
@@ -162,8 +158,13 @@ h1{
     background-color: white;
     border: none; 
     text-align: justify;
+    color: black;
+    text-decoration: none;
 }
 
+.readMore:hover{
+    cursor: pointer;
+}
 .readMore span{
     font-weight: bold;
 }
@@ -178,6 +179,21 @@ h1{
 
 ::-webkit-scrollbar-thumb {
     background: white;
+}
+
+   /*-----------------------------------EDIT PAGE--------------------------------------*/
+
+.editDelete button{
+    background-color: white;
+    border: solid 0.5px black;
+    border-radius: 10px;
+    width: 70px;
+    padding: 5px;
+}
+
+.editDelete button:hover{
+    background-color: black;
+    color:white;
 }
    /*-----------------------------------FOOTER PAGE--------------------------------------*/
 .footer{

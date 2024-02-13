@@ -1,9 +1,24 @@
 <%- include("partials/header.ejs") %>
-<div id="writingSection">
-    <form action="/write" method="post">
-        <input type="text" name="title" id="title" placeholder="Give your blog a cool title"><br><br>
-        <textarea type="text" name="content" id="content" placeholder="Begin your magic!"></textarea><br>
-        <br><input class="submitButton" type="submit" value="Submit">
-    </form>
-</div>
+
+<%if(locals.blog){%>
+    <div id="writingSection">
+        <form action="/update" method="post">
+            <input type="hidden" name="id" value ='<%=locals.blog.id%>'>
+            <input type="text" name="title" id="title" value='<%=locals.blog.title%>'><br><br>
+            <textarea type="text" name="content" id="content"><%=locals.blog.content%></textarea><br>
+            <br><input class="submitButton" type="submit" value="Submit">
+        </form>
+    </div>
+<%}else{%>
+    <div id="writingSection">
+        <form action="/write" method="post">
+            <input type="text" name="title" id="title" placeholder="Give your blog a cool title"><br><br>
+            <textarea type="text" name="content" id="content" placeholder="Begin your magic!"></textarea><br>
+            <br><input class="submitButton" type="submit" value="Submit">
+        </form>
+    </div>
+<%}%>
+
+
+
 <%- include("partials/footer.ejs") %>

@@ -1,10 +1,13 @@
 <%- include('partials/header.ejs'); %>
 
     <div class="allBlogs">
+      
         <% if (locals.blogs.length > 0) {%>
+            <form action="edit" method="post">
+
             <%for(var i = locals.blogs.length - 1; i>=0; i--){ %>
                 <div class="readingBlog">
-                    <button class="readMore" value='<%= locals.blogs[i].content%>' onclick="display('<%=locals.blogs[i].title%>', '<%=i%>')">
+                    <a class="readMore" onclick="display(`<%=locals.blogs[i].title%>`, `<%=locals.blogs[i].content%>`)">
                         <h1 class ="blogTitle">
                             <%= locals.blogs[i].title %>
                         </h1>
@@ -12,10 +15,16 @@
                             <%= locals.blogs[i].content.slice(0,450) %>...
                             <span>Read more</span>
                         </p>
-                    </button>
-                    <hr>
+                    </a>
                 </div> 
+                <div class="editDelete">
+                    <button  type="submit" name = "edit" value = '<%=locals.blogs[i]._id%>'>Edit</button> 
+                    &nbsp
+                    <button type="submit" name = "delete" value = '<%=locals.blogs[i].id%>'>Delete</button>
+                </div>            
+                <hr>
             <%};%>
+        </form>
         <%}else{%>
             <div class="noBlog">
                 <h1 class ="blogTitle">
@@ -27,6 +36,7 @@
             </div>
         <%}%>
     </div>
+
     <div class="parentBLOG">
         <div id="blogg" class="singleBlog">
             <button id="close" onclick="closeBlogg()"><i class="fa-solid fa-xmark"></i></button>
@@ -39,9 +49,10 @@
         var allbtns = document.querySelectorAll('.readMore');
         //console.log(allbtns);
         function display(title, i){
-            var index = allbtns.length - Number(i)-1;
+            console.log(title);
+            console.log(i);
             document.getElementById('displayTitle').innerText= title;
-            document.getElementById('displayContent').innerText= allbtns[index].value;
+            document.getElementById('displayContent').innerText= i;
             document.getElementById('blogg').classList.add("show");
         };
 
